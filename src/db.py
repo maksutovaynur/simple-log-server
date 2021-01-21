@@ -14,7 +14,7 @@ def get_user_by_token(token: str):
 
 
 def get_allowed_tokens():
-    return list(filter(lambda x: x, (u.get("user_token", None) for u in _db_users.find({}))))
+    return list(_db_users.find({}))
 
 
 def update_or_create_user_by_token(token: str, **kwargs):
