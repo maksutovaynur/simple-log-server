@@ -5,7 +5,7 @@ cd $BASE_DIR
 touch .env
 
 CMD=$1
-COMMANDS=('run' 'stop' 'token-add' 'token-list' 'clean' 'env')
+COMMANDS=('run' 'stop' 'token-add' 'token-list' 'clean' 'env' 'db')
 
 
 if [[ ! "$CMD" ]]
@@ -39,6 +39,9 @@ then
 elif [ $CMD == "env" ]
 then
   nano .env
+elif [ $CMD == "db" ]
+then
+  docker exec -it cash_db mongo
 elif [ $CMD == "clean" ]
 then
   read -p "This will delete all existing database data. Are you sure? [y/N] " -n 1 -r
