@@ -1,15 +1,5 @@
-from . import db
-import uuid
-import sys
+from src import db
 
-if len(sys.argv) < 2:
-    token = input("Enter new user's token:\n")
-else:
-    token = sys.argv[1]
-    if token == "gen":
-        token = uuid.uuid4().hex
+tokens = db.get_allowed_tokens()
 
-
-db.update_or_create_user_by_token(token)
-
-print(f"New user with token '{token}' was generated")
+print("\n".join(tokens))

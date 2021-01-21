@@ -1,0 +1,4 @@
+fastapi==0.63.0
+pymongo==3.11.1
+environs==9.3.0
+uvicorn==0.13.3
